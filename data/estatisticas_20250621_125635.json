@@ -1,0 +1,22 @@
+{
+  "leilao": {
+    "total_imoveis": 48,
+    "preco_medio": NaN,
+    "preco_mediano": NaN,
+    "preco_m2_medio": 3812.1337730055034,
+    "preco_m2_mediano": 3127.8405364318887,
+    "area_media": 81.9875234486423
+  },
+  "tradicional": {
+    "total_imoveis": 48,
+    "preco_medio": 498378.9652332726,
+    "preco_mediano": 530907.0344852326,
+    "preco_m2_medio": 6495.463411066999,
+    "preco_m2_mediano": 5647.960464118409,
+    "area_media": 90.59143047047297
+  },
+  "comparacao": {
+    "diferenca_preco_medio": NaN,
+    "diferenca_preco_m2_medio": 41.31082677626397
+  }
+}

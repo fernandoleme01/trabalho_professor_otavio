@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
+        color: white;
+        font-family: 'Arial', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .logo {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 80px;
+        height: auto;
+      }
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 30px;
+      }
+      .content {
+        font-size: 24px;
+        line-height: 1.6;
+      }
+      .info-box {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .chart-container {
+        height: 300px;
+        margin-top: 20px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 20px;
+      }
+      .key-point {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+      .key-icon {
+        margin-right: 15px;
+        color: #aed6f1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container flex flex-col p-16">
+      <img src="/home/ubuntu/projeto_leilao_imoveis/apresentacao/images/logo_ufg.png" alt="Logo UFG" class="logo">
+      
+      <h1 class="title text-center">Mercado Imobiliário Tradicional</h1>
+      
+      <div class="content flex flex-col z-10">
+        <div class="grid grid-cols-2 gap-6">
+          <div class="info-box">
+            <h3 class="text-2xl font-bold mb-4 text-aed6f1">Características</h3>
+            
+            <div class="key-point">
+              <div class="key-icon">
+                <i class="fas fa-chart-line fa-lg"></i>
+              </div>
+              <div>Aumento de 1,87% nos preços no 1º trimestre de 2025</div>
+            </div>
+            
+            <div class="key-point">
+              <div class="key-icon">
+                <i class="fas fa-percentage fa-lg"></i>
+              </div>
+              <div>Taxas de juros do financiamento em torno de 11%</div>
+            </div>
+            
+            <div class="key-point">
+              <div class="key-icon">
+                <i class="fas fa-building fa-lg"></i>
+              </div>
+              <div>Segmento de médio e alto padrão com aumento de 7,1% nas vendas</div>
+            </div>
+            
+            <div class="key-point">
+              <div class="key-icon">
+                <i class="fas fa-map-marker-alt fa-lg"></i>
+              </div>
+              <div>Capitais nordestinas com preços médios de luxo em R$ 3 milhões</div>
+            </div>
+          </div>
+          
+          <div class="chart-container">
+            <h3 class="text-xl font-bold mb-4">Variação de Preços por m² (2022-2025)</h3>
+            <canvas id="priceChart"></canvas>
+          </div>
+        </div>
+        
+        <div class="info-box mt-6">
+          <h3 class="text-2xl font-bold mb-4 text-aed6f1">Formação de Preços</h3>
+          
+          <div class="grid grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="mb-2"><i class="fas fa-map-marked-alt fa-2x text-aed6f1"></i></div>
+              <div class="text-xl">Localização</div>
+            </div>
+            
+            <div class="text-center">
+              <div class="mb-2"><i class="fas fa-ruler-combined fa-2x text-aed6f1"></i></div>
+              <div class="text-xl">Área e Padrão</div>
+            </div>
+            
+            <div class="text-center">
+              <div class="mb-2"><i class="fas fa-hand-holding-usd fa-2x text-aed6f1"></i></div>
+              <div class="text-xl">Condições de Financiamento</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Elementos decorativos -->
+      <div class="absolute top-0 left-0 w-32 h-32 bg-white opacity-10 rounded-br-full"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-tr-full"></div>
+    </div>
+    
+    <script>
+      // Dados para o gráfico de variação de preços por m²
+      const ctx = document.getElementById('priceChart').getContext('2d');
+      const priceChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['2022', '2023', '2024', '2025'],
+          datasets: [
+            {
+              label: 'São Paulo',
+              data: [9800, 10200, 10900, 11300],
+              borderColor: '#aed6f1',
+              backgroundColor: 'rgba(174, 214, 241, 0.1)',
+              tension: 0.4
+            },
+            {
+              label: 'Rio de Janeiro',
+              data: [8500, 8900, 9400, 9800],
+              borderColor: '#f2f3f4',
+              backgroundColor: 'rgba(242, 243, 244, 0.1)',
+              tension: 0.4
+            },
+            {
+              label: 'Goiânia',
+              data: [5200, 5600, 6100, 6500],
+              borderColor: '#cacfd2',
+              backgroundColor: 'rgba(202, 207, 210, 0.1)',
+              tension: 0.4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                color: 'white'
+              }
+            },
+            title: {
+              display: false
+            }
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: 'white'
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              }
+            },
+            y: {
+              ticks: {
+                color: 'white',
+                callback: function(value) {
+                  return 'R$ ' + value;
+                }
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              }
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+

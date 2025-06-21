@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
+        color: white;
+        font-family: 'Arial', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .logo {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 80px;
+        height: auto;
+      }
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+      }
+      .content {
+        font-size: 24px;
+        line-height: 1.5;
+      }
+      .conclusion-box {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .conclusion-title {
+        font-size: 26px;
+        font-weight: bold;
+        color: #aed6f1;
+        margin-bottom: 15px;
+      }
+      .conclusion-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+      }
+      .conclusion-icon {
+        margin-right: 15px;
+        color: #aed6f1;
+        font-size: 24px;
+        margin-top: 3px;
+      }
+      .highlight {
+        color: #aed6f1;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container flex flex-col p-12">
+      <img src="/home/ubuntu/projeto_leilao_imoveis/apresentacao/images/logo_ufg.png" alt="Logo UFG" class="logo">
+      
+      <h1 class="title text-center">Conclusões</h1>
+      
+      <div class="content flex flex-col z-10">
+        <div class="conclusion-box">
+          <div class="conclusion-title">Principais Achados</div>
+          
+          <div class="conclusion-item">
+            <div class="conclusion-icon">
+              <i class="fas fa-percentage"></i>
+            </div>
+            <div>
+              Imóveis em leilões apresentam descontos médios de <span class="highlight">43%</span> em relação ao mercado tradicional
+            </div>
+          </div>
+          
+          <div class="conclusion-item">
+            <div class="conclusion-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <div>
+              Imóveis comerciais possuem os maiores descontos (<span class="highlight">50%</span>), seguidos por casas de padrão médio (<span class="highlight">45%</span>)
+            </div>
+          </div>
+          
+          <div class="conclusion-item">
+            <div class="conclusion-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div>
+              Ocupação e risco jurídico são os fatores que mais impactam na formação do desconto
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-6">
+          <div class="conclusion-box h-full">
+            <div class="conclusion-title">Implicações para Investidores</div>
+            
+            <div class="conclusion-item">
+              <div class="conclusion-icon">
+                <i class="fas fa-search-dollar"></i>
+              </div>
+              <div>
+                Oportunidade de aquisição com valores significativamente abaixo do mercado
+              </div>
+            </div>
+            
+            <div class="conclusion-item">
+              <div class="conclusion-icon">
+                <i class="fas fa-balance-scale"></i>
+              </div>
+              <div>
+                Necessidade de análise detalhada dos riscos envolvidos antes da arrematação
+              </div>
+            </div>
+          </div>
+          
+          <div class="conclusion-box h-full">
+            <div class="conclusion-title">Considerações Finais</div>
+            
+            <div class="conclusion-item">
+              <div class="conclusion-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div>
+                O desconto médio compensa os riscos em muitos casos, especialmente para investidores experientes
+              </div>
+            </div>
+            
+            <div class="conclusion-item">
+              <div class="conclusion-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <div>
+                Recomenda-se a criação de um índice de risco-retorno para avaliação sistemática de oportunidades em leilões
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Elementos decorativos -->
+      <div class="absolute top-0 left-0 w-32 h-32 bg-white opacity-10 rounded-br-full"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-tr-full"></div>
+    </div>
+  </body>
+</html>
+
